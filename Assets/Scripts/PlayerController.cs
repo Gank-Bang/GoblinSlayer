@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 4f;
     public float colisionOffset = 0.01f;
 
+    public FixedJoystick joystick;
+
     public ContactFilter2D movementFilter;
     Vector2 movementInput;
     Rigidbody2D rb;
@@ -32,6 +34,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        Physics2D.SyncTransforms();
     }
     
 
@@ -83,8 +87,13 @@ public class PlayerController : MonoBehaviour
             isMoving = false;
         }
 
-        rb.velocity = new Vector2(movementInput.x * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
 
+        //POUR ACTIVER LE MODE JOYSTICK NICO ET THEO
+        //movementInput = new Vector2(joystick.Horizontal,0);
+        //
+
+        rb.velocity = new Vector2(movementInput.x * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
+    
         
 
         if(movementInput.x < 0 ){
