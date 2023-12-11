@@ -9,11 +9,19 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 4f;
     public float colisionOffset = 0.01f;
+    public float reculForce = 5f;
 
     public FixedJoystick joystick;
 
+    public Transform transform;
+
+    public GameObject Heart1;
+    public GameObject Heart2;
+    public GameObject Heart3;
+
     public ContactFilter2D movementFilter;
     Vector2 movementInput;
+    int LifePoints = 3;
     Rigidbody2D rb;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     Animator animator;
@@ -23,10 +31,10 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 2f;
     bool isGrounded;
     bool isMoving;
+    bool isDead = false;
 
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.2f;
-    public LayerMask groundLayer;
+    bool facingRight = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +42,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        transform = GetComponent<Transform>();
 
         Physics2D.SyncTransforms();
     }
@@ -78,7 +87,7 @@ public class PlayerController : MonoBehaviour
         }*/
 
 
-         if(movementInput != Vector2.zero && movementInput.x != 0 ){
+        if(movementInput != Vector2.zero && movementInput.x != 0 ){
             animator.SetBool("isMoving",true);
             isMoving = true;
         }
@@ -92,15 +101,20 @@ public class PlayerController : MonoBehaviour
         //movementInput = new Vector2(joystick.Horizontal,0);
         //
 
-        rb.velocity = new Vector2(movementInput.x * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
-    
-        
+        if(!isDead){
+            rb.velocity = new Vector2(movementInput.x * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
 
-        if(movementInput.x < 0 ){
-            spriteRenderer.flipX = true;
-        }
-        else if(movementInput.x > 0){
-           spriteRenderer.flipX = false; 
+            if(movementInput.x < 0 && facingRight ){
+                transform.localScale *= new Vector2(-1,1);
+                facingRight = false; 
+                //spriteRenderer.flipX = true;
+            }
+            else if(movementInput.x > 0 && !facingRight){
+            //spriteRenderer.flipX = false; 
+            transform.localScale *= new Vector2(-1,1); 
+                facingRight = true; 
+
+            }
         }
           
     }
@@ -139,15 +153,45 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnMove(InputValue movementValue){
+        
         movementInput = movementValue.Get<Vector2>();
         movementInput.y = 0;
     }
 
+    
     void OnCollisionEnter2D(Collision2D collision) {
-    if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) {
-        isGrounded = true;
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) {
+            isGrounded = true;
+        }
+
+        if (collision.gameObject.CompareTag("Ennemi"))
+        {   
+            animator.SetTrigger("isHit");
+            Vector2 directionKnock = (transform.position - collision.transform.position).normalized;
+            //rb.velocity = new Vector2(directionKnock.x * reculForce, jumpForce);
+            print(directionKnock);
+            Vector2 newPosition = rb.position + directionKnock * reculForce * Time.fixedDeltaTime;
+            rb.MovePosition(newPosition);
+
+            if(LifePoints == 3){
+                Heart3.SetActive(false);
+                LifePoints -= 1;
+            }
+            else if(LifePoints == 2){
+                Heart2.SetActive(false);
+                LifePoints -= 1;
+            }
+            else if(LifePoints == 1){
+                Heart1.SetActive(false);
+                LifePoints -= 1;
+                animator.SetBool("isDead",true);
+                isDead = true;
+            }
+        }
     }
-}
+
+    
 
     void OnCollisionExit2D(Collision2D collision) {
     if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) {
