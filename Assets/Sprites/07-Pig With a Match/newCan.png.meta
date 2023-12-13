@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4ba66af3322b4cc19620bffb73c9ad8
+guid: 26a1cbfa3bdf64ab4b265c5eb56dbd6a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lighting the Match (26x18)_0
+      name: newCan_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 26
-        height: 18
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e72d48416b24418bbb32f6d519cd95d
-      internalID: -1319433813
+      spriteID: e907b2c136dc94c788b06e526b835591
+      internalID: -653469149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lighting the Match (26x18)_1
+      name: newCan_1
       rect:
         serializedVersion: 2
-        x: 26
+        x: 34
         y: 0
-        width: 26
-        height: 18
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 803ab6b35d6b647df98313a5d78f3898
-      internalID: 1668697523
+      spriteID: 2e2d72105819948b6aad5f13aa5e08d2
+      internalID: -461886981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lighting the Match (26x18)_2
+      name: newCan_2
       rect:
         serializedVersion: 2
-        x: 52
+        x: 68
         y: 0
-        width: 26
-        height: 18
+        width: 34
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d5a3354d6eb9401999358993364da1d
-      internalID: 1669391749
+      spriteID: 2781061c2c2d9469fa92b5356c057bf4
+      internalID: -279720099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newCan_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103cb8467ee084150919241d314d6740
+      internalID: -1239119271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newCan_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a6d878f8d6b4b4b8d69f7d4ce2306c
+      internalID: 216018759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newCan_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa16ea6740564646b0d2ef42a909773
+      internalID: 1921719791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newCan_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127a2de3612db43fea2f096b0f7e5bd1
+      internalID: -1717996819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newCan_7
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 0
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8c5428cf30e4435aaafcd0d33c22f9
+      internalID: 1071407076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newCan_8
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693e6bf21591f4dcb8585231e01ba4df
+      internalID: 1464497638
       vertices: []
       indices: 
       edges: []
@@ -196,9 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lighting the Match (26x18)_0: -1319433813
-      Lighting the Match (26x18)_1: 1668697523
-      Lighting the Match (26x18)_2: 1669391749
+      newCan_0: -653469149
+      newCan_1: -461886981
+      newCan_2: -279720099
+      newCan_3: -1239119271
+      newCan_4: 216018759
+      newCan_5: 1921719791
+      newCan_6: -1717996819
+      newCan_7: 1071407076
+      newCan_8: 1464497638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

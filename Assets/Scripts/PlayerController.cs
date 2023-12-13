@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -19,9 +20,14 @@ public class PlayerController : MonoBehaviour
     public GameObject Heart2;
     public GameObject Heart3;
 
+    public GameObject Diamond1;
+    public GameObject Diamond2;
+    public GameObject Diamond3;
+
     public ContactFilter2D movementFilter;
     Vector2 movementInput;
     int LifePoints = 3;
+    int Diamonds = 0;
     Rigidbody2D rb;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     Animator animator;
@@ -164,6 +170,9 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) {
             isGrounded = true;
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Box")) {
+            isGrounded = true;
+        }
 
         if (collision.gameObject.CompareTag("Ennemi"))
         {   
@@ -177,6 +186,8 @@ public class PlayerController : MonoBehaviour
             if(LifePoints == 3){
                 Heart3.SetActive(false);
                 LifePoints -= 1;
+                //Diamond1.SetActive(true);
+
             }
             else if(LifePoints == 2){
                 Heart2.SetActive(false);
@@ -188,6 +199,37 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isDead",true);
                 isDead = true;
             }
+        }
+
+        if (collision.gameObject.CompareTag("Diamond"))
+        {   
+
+            if(Diamonds == 0){
+                Diamond1.SetActive(true);
+                Diamonds += 1;
+            }
+            else if(Diamonds == 1){
+                Diamond2.SetActive(true);
+                Diamonds += 1;
+            }
+            else if(Diamonds == 2){
+                Diamond3.SetActive(true);
+                Diamonds += 1;
+                //animator.SetBool("isDead",true);
+                //isDead = true;
+
+                ////PROTOTYPE
+                GameObject doorObject = GameObject.Find("Door");
+                if (doorObject != null)
+                {
+                    Animator doorAnimator = doorObject.GetComponent<Animator>();
+                    doorAnimator.SetBool("isOpen",true);
+                }
+                ////PROTOTYPE
+                
+            }
+            collision.gameObject.SetActive(false);
+
         }
     }
 

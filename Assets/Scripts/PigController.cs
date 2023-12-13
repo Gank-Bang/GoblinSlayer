@@ -9,8 +9,11 @@ public class PigController : MonoBehaviour
     Transform transform;
     Vector2 positionDebut;
     Vector2 positionFin;
+    Animator animator;
 
     float direction = 1f;
+    public float reculForce = 5f;
+
     public float LifePoints = 6;
     public float moveSpeed = 100f;
 
@@ -20,17 +23,42 @@ public class PigController : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
      rb = GetComponent<Rigidbody2D>();  
      transform = GetComponent<Transform>(); 
      positionDebut = new Vector2(transform.position.x,transform.position.y);
      positionFin = new Vector2(positionDebut.x + 1,transform.position.y);
      transform.localScale *= new Vector2(-1,1);
+     if(this.CompareTag("EnnemiCanon")){
+        canonPig();
+     }
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {   
+        if(this.CompareTag("Ennemi")){
+            normalPig();
+        }
+        checkDie();
+    }
+
+    void checkDie(){
+        if(LifePoints <= 0){
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void takeDammage(GameObject sword){
+        animator.SetTrigger("isHit");
+        LifePoints -= 1;
+        Vector2 directionKnock = (transform.position - sword.transform.position).normalized;
+        Vector2 newPosition = rb.position + directionKnock * reculForce * Time.fixedDeltaTime;
+        rb.MovePosition(newPosition);
+    }
+
+    public void normalPig(){
         rb.velocity = new Vector2( direction * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
 
         if(transform.position.x <= positionFin.x){
@@ -59,13 +87,18 @@ public class PigController : MonoBehaviour
             transform.localScale *= new Vector2(-1,1);
             changeDirection = false;
         }
-
-        checkDie();
     }
 
-    void checkDie(){
-        if(LifePoints <= 0){
-            Destroy(this.gameObject);
+    public void canonPig(){
+        StartCoroutine(Fire());  
+    }
+
+    IEnumerator Fire()
+    {
+        while (true)
+        {
+            animator.SetTrigger("isFire");
+            yield return new WaitForSeconds(3f);
         }
     }
 }

@@ -18,8 +18,12 @@ public class AttackScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision){
         PigController Pigscript = collision.gameObject.GetComponent<PigController>();
+        BoxScript BoxScript = collision.gameObject.GetComponent<BoxScript>();
         if(Pigscript != null){
-            Pigscript.LifePoints -= 1;
+            Pigscript.takeDammage(this.gameObject);
+        }
+        else if(BoxScript != null){
+            BoxScript.DestroyBox();
         }
 
     }
