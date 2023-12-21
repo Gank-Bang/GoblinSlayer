@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
+//using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -147,12 +147,12 @@ public class PlayerController : MonoBehaviour
         // animator.SetTrigger("isJumping");
     }
 
-    void OnJump(){
+    public void OnJump(){
         if(isGrounded){
             Jump();
         }
     }
-    void OnFire(){
+    public void OnFire(){
         print("prout");
         animator.SetTrigger("isAttacking");
         //animator.SetBool("isDead",true);
