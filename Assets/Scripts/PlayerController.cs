@@ -32,14 +32,23 @@ public class PlayerController : MonoBehaviour
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     Animator animator;
     SpriteRenderer spriteRenderer;
+    public GameObject door;
 
     //JUMP
     public float jumpForce = 2f;
-    bool isGrounded;
+
+    public bool isAttacking = false;
+    public bool isGrounded;
+    public bool isReallyGrounded;
     bool isMoving;
     bool isDead = false;
 
     bool facingRight = true;
+
+    bool wallRight = false;
+    bool wallLeft = false;
+
+    bool isTouchingWall = false;
 
 
     // Start is called before the first frame update
@@ -93,6 +102,17 @@ public class PlayerController : MonoBehaviour
         }*/
 
 
+
+        if(isTouchingWall && !isReallyGrounded && rb.velocity.y < 0){
+            animator.SetBool("isWall",true);
+            rb.gravityScale = 0.3f;
+        }
+        else{
+            animator.SetBool("isWall",false);
+            rb.gravityScale = 1f;
+        }
+
+
         if(movementInput != Vector2.zero && movementInput.x != 0 ){
             animator.SetBool("isMoving",true);
             isMoving = true;
@@ -101,27 +121,36 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isMoving",false);
             isMoving = false;
         }
-
+        
 
         //POUR ACTIVER LE MODE JOYSTICK NICO ET THEO
         //movementInput = new Vector2(joystick.Horizontal,0);
         //
 
         if(!isDead){
-            rb.velocity = new Vector2(movementInput.x * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
+            if(!isAttacking){
+                rb.velocity = new Vector2(movementInput.x * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
 
-            if(movementInput.x < 0 && facingRight ){
-                transform.localScale *= new Vector2(-1,1);
-                facingRight = false; 
-                //spriteRenderer.flipX = true;
-            }
-            else if(movementInput.x > 0 && !facingRight){
-            //spriteRenderer.flipX = false; 
-            transform.localScale *= new Vector2(-1,1); 
-                facingRight = true; 
+                if(movementInput.x < 0 && facingRight ){
+                    transform.localScale *= new Vector2(-1,1);
+                    //spriteRenderer.flipX = !spriteRenderer.flipX;
+                    facingRight = false; 
+                    //spriteRenderer.flipX = true;
+                }
+                else if(movementInput.x > 0 && !facingRight){
+                    //spriteRenderer.flipX = false; 
+                    transform.localScale *= new Vector2(-1,1); 
+                    //spriteRenderer.flipX = !spriteRenderer.flipX;
+                    facingRight = true; 
 
+                }
             }
         }
+        else{
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        }
+
+
           
     }
 
@@ -154,26 +183,50 @@ public class PlayerController : MonoBehaviour
     }
     public void OnFire(){
         print("prout");
+        isAttacking = true;
         animator.SetTrigger("isAttacking");
         //animator.SetBool("isDead",true);
     }
 
     void OnMove(InputValue movementValue){
-        
-        movementInput = movementValue.Get<Vector2>();
-        movementInput.y = 0;
+        Vector2 movement = movementValue.Get<Vector2>();
+        if(wallRight && movement.x >= 0 || wallLeft && movement.x <= 0){
+
+        }
+        else{
+            movementInput = movementValue.Get<Vector2>();
+        }
+        //movementInput.y = 0;
     }
 
     
     void OnCollisionEnter2D(Collision2D collision) {
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) {
-            isGrounded = true;
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Wall")){
+            isTouchingWall = true;
         }
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Box")) {
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("Planche") || collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Box") || collision.collider.CompareTag("TopCollider")  ) {
             isGrounded = true;
         }
 
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground") ){
+            animator.SetBool("isWall",false);
+            isReallyGrounded = true;
+        }
+
+        /*if (collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.collider.CompareTag("Box")  || collision.collider.CompareTag("BoxDiamond") ) {
+            if(facingRight){
+                wallRight = true;
+                wallLeft = false;
+                movementInput = Vector2.zero;
+            }
+            else{
+               wallLeft = true;
+               wallRight = false;
+               movementInput = Vector2.zero; 
+            }
+        }*/
         if (collision.gameObject.CompareTag("Ennemi"))
         {   
             animator.SetTrigger("isHit");
@@ -224,6 +277,7 @@ public class PlayerController : MonoBehaviour
                 {
                     Animator doorAnimator = doorObject.GetComponent<Animator>();
                     doorAnimator.SetBool("isOpen",true);
+                    door.GetComponent<DoorScript>().doorOpened = true;
                 }
                 ////PROTOTYPE
                 
@@ -236,9 +290,23 @@ public class PlayerController : MonoBehaviour
     
 
     void OnCollisionExit2D(Collision2D collision) {
-    if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) {
-        isGrounded = false;
+
+        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Box")) {
+            wallLeft = false;
+            wallRight = false;
+        }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground")){
+            isReallyGrounded = false;
+        }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Wall")){
+            isTouchingWall = false;
+             animator.SetBool("isWall",false);
+             rb.gravityScale = 1f;
+        }
+
     }
-    }
+
+
     
 }

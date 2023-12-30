@@ -4,7 +4,8 @@ using UnityEngine;
 public class DiableScript : MonoBehaviour
 {
     public GameObject bouleDeFeuPrefab; // Assurez-vous de définir ceci dans l'inspecteur Unity
-    public float vitesseBouleDeFeu = 1f; // Vitesse de la boule de feu
+    public float vitesseBouleDeFeu = 5f; // Vitesse de la boule de feu
+    public Transform pointDeDepart; // Point de départ de la boule de feu (la bouche du diable)
 
     Animator animator;
 
@@ -20,8 +21,12 @@ public class DiableScript : MonoBehaviour
         {
             animator.SetTrigger("isFire");
 
-            // Instancier la boule de feu à partir du prefab
-            GameObject bouleDeFeu = Instantiate(bouleDeFeuPrefab, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+        }
+    }
+
+    void Fireing(){
+            GameObject bouleDeFeu = Instantiate(bouleDeFeuPrefab, pointDeDepart.position, Quaternion.identity);
 
             // Donner une vélocité à la boule de feu pour la faire se propulser tout droit
             Rigidbody2D rbBouleDeFeu = bouleDeFeu.GetComponent<Rigidbody2D>();
@@ -29,11 +34,9 @@ public class DiableScript : MonoBehaviour
             // Assurez-vous que le Rigidbody2D est présent sur le prefab
             if (rbBouleDeFeu != null)
             {
+               Vector2 direction = Vector2.left;
                 // Donner une vélocité à la boule de feu (ici, elle se propulsera vers la droite)
-                rbBouleDeFeu.velocity = new Vector2(vitesseBouleDeFeu, 0f);
+                rbBouleDeFeu.velocity = direction* vitesseBouleDeFeu;
             }
-
-            yield return new WaitForSeconds(3f);
-        }
     }
 }

@@ -8,6 +8,10 @@ TagManager:
   - Ennemi
   - Diamond
   - EnnemiCanon
+  - PlayerDoor
+  - BoxDiamond
+  - TopCollider
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -21,8 +25,8 @@ TagManager:
   - Boutons
   - 
   - 
-  - 
-  - 
+  - Wall
+  - Planche
   - 
   - 
   - 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BoxScript : MonoBehaviour
 {
-    public GameObject debrisPrefab; // Définissez le préfabriqué (Prefab) de vos débris dans l'inspecteur Unity
+    public GameObject debrisPrefab; 
+    public GameObject diamondPrefab; // Définissez le préfabriqué (Prefab) de vos débris dans l'inspecteur Unity
     public int debrisCount = 3; // Nombre de débris à générer
 
     Animator animator;
@@ -34,6 +35,13 @@ public class BoxScript : MonoBehaviour
 
             // Ajoutez une force pour éjecter le débris dans cette direction
             debris.GetComponent<Rigidbody2D>().AddForce(randomDirection * Random.Range(2f, 5f), ForceMode2D.Impulse);
+
+            Destroy(debris, 2f);
+        }
+        if(this.gameObject.CompareTag("BoxDiamond")){
+            GameObject diamond = Instantiate(diamondPrefab, transform.position, Quaternion.identity);
         }
     }
+
+
 }

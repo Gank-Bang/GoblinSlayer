@@ -119,6 +119,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -126,12 +139,12 @@ TextureImporter:
       name: Run (78x58)_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 0
-        width: 78
+        width: 37
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +160,12 @@ TextureImporter:
       name: Run (78x58)_1
       rect:
         serializedVersion: 2
-        x: 78
+        x: 87
         y: 0
-        width: 78
+        width: 37
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +181,12 @@ TextureImporter:
       name: Run (78x58)_2
       rect:
         serializedVersion: 2
-        x: 156
+        x: 165
         y: 0
-        width: 78
+        width: 37
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +202,12 @@ TextureImporter:
       name: Run (78x58)_3
       rect:
         serializedVersion: 2
-        x: 234
+        x: 243
         y: 0
-        width: 78
+        width: 37
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +223,12 @@ TextureImporter:
       name: Run (78x58)_4
       rect:
         serializedVersion: 2
-        x: 312
+        x: 321
         y: 0
-        width: 78
+        width: 37
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +244,12 @@ TextureImporter:
       name: Run (78x58)_5
       rect:
         serializedVersion: 2
-        x: 390
+        x: 399
         y: 0
-        width: 78
+        width: 37
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +265,12 @@ TextureImporter:
       name: Run (78x58)_6
       rect:
         serializedVersion: 2
-        x: 468
+        x: 477
         y: 0
-        width: 78
+        width: 37
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +286,12 @@ TextureImporter:
       name: Run (78x58)_7
       rect:
         serializedVersion: 2
-        x: 546
+        x: 555
         y: 0
-        width: 78
+        width: 37
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
