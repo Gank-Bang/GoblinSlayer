@@ -18,8 +18,12 @@ public class BouleScript : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        if (collision.CompareTag("Ennemi") || collision.CompareTag("EnnemiCanon") ){
-            print("rien");
+        if (collision.CompareTag("Ennemi") || collision.CompareTag("EnnemiCanon") || collision.CompareTag("Diamond") ){
+            //print("rien");
+        }
+        else if(collision.CompareTag("Player")){
+            PlayerController playerScript = collision.GetComponent<PlayerController>();
+            playerScript.onHit(collision);
         }
         else{
             Destroy(this.gameObject);

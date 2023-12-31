@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         else{
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         }
 
 
@@ -227,31 +228,9 @@ public class PlayerController : MonoBehaviour
                movementInput = Vector2.zero; 
             }
         }*/
-        if (collision.gameObject.CompareTag("Ennemi"))
+        if (collision.gameObject.CompareTag("Ennemi") )
         {   
-            animator.SetTrigger("isHit");
-            Vector2 directionKnock = (transform.position - collision.transform.position).normalized;
-            //rb.velocity = new Vector2(directionKnock.x * reculForce, jumpForce);
-            print(directionKnock);
-            Vector2 newPosition = rb.position + directionKnock * reculForce * Time.fixedDeltaTime;
-            rb.MovePosition(newPosition);
-
-            if(LifePoints == 3){
-                Heart3.SetActive(false);
-                LifePoints -= 1;
-                //Diamond1.SetActive(true);
-
-            }
-            else if(LifePoints == 2){
-                Heart2.SetActive(false);
-                LifePoints -= 1;
-            }
-            else if(LifePoints == 1){
-                Heart1.SetActive(false);
-                LifePoints -= 1;
-                animator.SetBool("isDead",true);
-                isDead = true;
-            }
+          onHit(collision);
         }
 
         if (collision.gameObject.CompareTag("Diamond"))
@@ -307,6 +286,67 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void onHit(Collision2D collision){
+        animator.SetTrigger("isHit");
+            Vector2 directionKnock = (transform.position - collision.transform.position).normalized;
+            //rb.velocity = new Vector2(directionKnock.x * reculForce, jumpForce);
+            print(directionKnock);
+            Vector2 newPosition = rb.position + directionKnock * reculForce * Time.fixedDeltaTime;
+            rb.MovePosition(newPosition);
+
+            if(LifePoints == 3){
+                Heart3.SetActive(false);
+                LifePoints -= 1;
+                //Diamond1.SetActive(true);
+
+            }
+            else if(LifePoints == 2){
+                Heart2.SetActive(false);
+                LifePoints -= 1;
+            }
+            else if(LifePoints == 1){
+                Heart1.SetActive(false);
+                LifePoints -= 1;
+                animator.SetBool("isDead",true);
+                isDead = true;
+            }
+    }
+
+    public void onHit(Collider2D collision){
+        animator.SetTrigger("isHit");
+            Vector2 directionKnock = (transform.position - collision.transform.position).normalized;
+            //rb.velocity = new Vector2(directionKnock.x * reculForce, jumpForce);
+            //print(directionKnock);
+            Vector2 newPosition = rb.position + directionKnock * reculForce * Time.fixedDeltaTime;
+            rb.MovePosition(newPosition);
+
+            if(LifePoints == 3){
+                Heart3.SetActive(false);
+                LifePoints -= 1;
+                //Diamond1.SetActive(true);
+
+            }
+            else if(LifePoints == 2){
+                Heart2.SetActive(false);
+                LifePoints -= 1;
+            }
+            else if(LifePoints == 1){
+                Heart1.SetActive(false);
+                LifePoints -= 1;
+                animator.SetBool("isDead",true);
+                isDead = true;
+            }
+    }
+
+    public void Die(){
+        DoorScript scriptDoor = door.GetComponent<DoorScript>();
+        int sceneActuelle = scriptDoor.nextScene-1;
+        if(sceneActuelle == -1){
+            sceneActuelle = 3;
+        }
+        print(sceneActuelle);
+        SceneManager.LoadSceneAsync(sceneActuelle);
+    }
 
     
 }

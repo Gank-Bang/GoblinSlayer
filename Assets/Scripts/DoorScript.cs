@@ -11,6 +11,8 @@ public class DoorScript : MonoBehaviour
     public GameObject bulle;
 
     public bool doorOpened = false;
+
+    public int nextScene;
     private void OnMouseDown(){
         openDoor();
     }
@@ -47,7 +49,7 @@ public class DoorScript : MonoBehaviour
     public void openDoor(){
         if(playerInZone && doorOpened){
             print("porte ouverte");
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadSceneAsync(nextScene);
         }
     }
 }

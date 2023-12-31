@@ -18,7 +18,7 @@ public class MenuScript : MonoBehaviour
     }
 
     public void onPlay(){
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(1);
     }
 
 }

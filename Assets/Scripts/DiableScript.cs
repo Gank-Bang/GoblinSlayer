@@ -7,6 +7,8 @@ public class DiableScript : MonoBehaviour
     public float vitesseBouleDeFeu = 5f; // Vitesse de la boule de feu
     public Transform pointDeDepart; // Point de départ de la boule de feu (la bouche du diable)
 
+    public float coolDown;
+
     Animator animator;
 
     void Start()
@@ -21,7 +23,7 @@ public class DiableScript : MonoBehaviour
         {
             animator.SetTrigger("isFire");
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(coolDown);
         }
     }
 

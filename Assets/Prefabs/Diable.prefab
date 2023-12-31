@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 475531728106126851}
   m_Layer: 0
   m_Name: Diable
-  m_TagString: Untagged
+  m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e2d1fa24b4c45a789824651af5be19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bouleDeFeuPrefab: {fileID: 6593469946666264175, guid: 8d179b277602941fe8c6d776be44c1f4, type: 3}
+  bouleDeFeuPrefab: {fileID: 8536015833365648397, guid: 8708c86c503ad47e696911cb071bc508, type: 3}
   vitesseBouleDeFeu: 3
   pointDeDepart: {fileID: 3074486028652078832}
