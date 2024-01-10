@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class DoorScript : MonoBehaviour
@@ -13,6 +14,8 @@ public class DoorScript : MonoBehaviour
     public bool doorOpened = false;
 
     public int nextScene;
+
+    public int menu = 0;
     private void OnMouseDown(){
         openDoor();
     }
@@ -48,8 +51,10 @@ public class DoorScript : MonoBehaviour
 
     public void openDoor(){
         if(playerInZone && doorOpened){
+            GetComponent<BoxCollider2D>().enabled = false;
+            EventSystem.current.SetSelectedGameObject(null); 
             print("porte ouverte");
-            SceneManager.LoadSceneAsync(nextScene);
+            SceneManager.LoadScene(menu);
         }
     }
 }

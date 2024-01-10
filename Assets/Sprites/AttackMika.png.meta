@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b342b223b335a4ab2a3e96d7c7bd4a56
+guid: 514192242e72742a889a119d3c4bb5fe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -120,7 +120,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -136,106 +136,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack (38x28)_0
+      name: AttackMika_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
-        height: 28
+        width: 24
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f2b1c7b759fc4c3c8d3b3f3fadfe14c
-      internalID: -1888114722
+      spriteID: adfc84bdd00fe483b91afbe5d9632059
+      internalID: -461179787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (38x28)_1
+      name: AttackMika_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 60
         y: 0
-        width: 38
-        height: 28
+        width: 26
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af2ec166c46c74dfb8fc848f6e8a1e15
-      internalID: -657199889
+      spriteID: 20a1f75cf81b74d289d8a0334af91e58
+      internalID: 1716768209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (38x28)_2
+      name: AttackMika_2
       rect:
         serializedVersion: 2
-        x: 76
+        x: 120
         y: 0
-        width: 38
-        height: 28
+        width: 23
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ec12c9bd2d2c423985c5b1b038619dd
-      internalID: 166634442
+      spriteID: c8d39bbf4bb9249b3b974bf6cc03b4e5
+      internalID: 1787218867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (38x28)_3
+      name: AttackMika_3
       rect:
         serializedVersion: 2
-        x: 114
+        x: 180
         y: 0
-        width: 38
-        height: 28
+        width: 23
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b9257c4fc6c14ba097b137435b55f2a
-      internalID: 136836993
+      spriteID: 44790a35cf02d4de7a9da63c43da779a
+      internalID: -558436169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (38x28)_4
+      name: AttackMika_4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 240
         y: 0
-        width: 38
-        height: 28
+        width: 21
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cdf9577991834c2c99ef866d416775b
-      internalID: 1469311136
+      spriteID: d910633ec3ddb4c7a8ab2200c4edce1c
+      internalID: -1390115901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackMika_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 24
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2308f5c42b49c4264a661aa3e2094732
+      internalID: -345650846
       vertices: []
       indices: 
       edges: []
@@ -251,11 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack (38x28)_0: -1888114722
-      Attack (38x28)_1: -657199889
-      Attack (38x28)_2: 166634442
-      Attack (38x28)_3: 136836993
-      Attack (38x28)_4: 1469311136
+      AttackMika_0: -461179787
+      AttackMika_1: 1716768209
+      AttackMika_2: 1787218867
+      AttackMika_3: -558436169
+      AttackMika_4: -1390115901
+      AttackMika_5: -345650846
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,10 @@ public class Dialogue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(gameObject.tag == "DialogueMika"){
+            gameObject.SetActive(true);
+            StartDialogue();
+        }
     }
 
     // Update is called once per frame

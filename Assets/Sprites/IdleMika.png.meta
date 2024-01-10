@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b342b223b335a4ab2a3e96d7c7bd4a56
+guid: fc4cffc6c70c74f779c42708be491154
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -120,7 +120,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -136,106 +136,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack (38x28)_0
+      name: IdleMika_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
-        height: 28
+        width: 24
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f2b1c7b759fc4c3c8d3b3f3fadfe14c
-      internalID: -1888114722
+      spriteID: 0c3ff26f4e47548189537320c9eb70c9
+      internalID: -2099153600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (38x28)_1
+      name: IdleMika_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 78
         y: 0
-        width: 38
-        height: 28
+        width: 24
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af2ec166c46c74dfb8fc848f6e8a1e15
-      internalID: -657199889
+      spriteID: f5e0876562ce14a86880e3690a3a61ce
+      internalID: -688314709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (38x28)_2
+      name: IdleMika_2
       rect:
         serializedVersion: 2
-        x: 76
+        x: 156
         y: 0
-        width: 38
-        height: 28
+        width: 24
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ec12c9bd2d2c423985c5b1b038619dd
-      internalID: 166634442
+      spriteID: d02a2686002f74731b43dd7e94d9ff59
+      internalID: -1522255971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (38x28)_3
+      name: IdleMika_3
       rect:
         serializedVersion: 2
-        x: 114
+        x: 234
         y: 0
-        width: 38
-        height: 28
+        width: 24
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b9257c4fc6c14ba097b137435b55f2a
-      internalID: 136836993
+      spriteID: 67c5e64f16f5e4511850d82623510b94
+      internalID: 1217202392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (38x28)_4
+      name: IdleMika_4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 312
         y: 0
-        width: 38
-        height: 28
+        width: 24
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cdf9577991834c2c99ef866d416775b
-      internalID: 1469311136
+      spriteID: d3301488f5a4049a3b9bb942fb2d23dc
+      internalID: -213075290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleMika_5
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 24
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0b3e4223c2749f58bf94f2e7ba669d
+      internalID: -726684179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleMika_6
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 0
+        width: 24
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f68a9abfccb4585bf2b28c3a30c0be
+      internalID: -2060845711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleMika_7
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 0
+        width: 24
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d3f8f41824c4fdfbe3cc1da7900191
+      internalID: -1332187903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleMika_8
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 0
+        width: 24
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf98af3019ad44a09d890c307656218
+      internalID: -1757069566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleMika_9
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 0
+        width: 24
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e846af8b6234639a3d7f10606f25d6
+      internalID: 1957879291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleMika_10
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 24
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cafdd242805b4ea38ca9402e49c7a29
+      internalID: 801676695
       vertices: []
       indices: 
       edges: []
@@ -251,11 +377,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack (38x28)_0: -1888114722
-      Attack (38x28)_1: -657199889
-      Attack (38x28)_2: 166634442
-      Attack (38x28)_3: 136836993
-      Attack (38x28)_4: 1469311136
+      IdleMika_0: -2099153600
+      IdleMika_1: -688314709
+      IdleMika_10: 801676695
+      IdleMika_2: -1522255971
+      IdleMika_3: 1217202392
+      IdleMika_4: -213075290
+      IdleMika_5: -726684179
+      IdleMika_6: -2060845711
+      IdleMika_7: -1332187903
+      IdleMika_8: -1757069566
+      IdleMika_9: 1957879291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

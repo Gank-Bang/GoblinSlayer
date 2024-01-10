@@ -13,6 +13,7 @@ TagManager:
   - TopCollider
   - Box
   - Boule
+  - DialogueMika
   layers:
   - Default
   - TransparentFX
