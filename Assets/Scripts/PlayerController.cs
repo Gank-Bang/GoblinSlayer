@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     //JUMP
     public float jumpForce = 2f;
+    float joystickX = 0;
+    Vector2 Movement ;
 
     public bool isAttacking = false;
     public bool isGrounded;
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if(movementInput != Vector2.zero && movementInput.x != 0 ){
+        if(Movement != Vector2.zero && Movement.x != 0 ){
             animator.SetBool("isMoving",true);
             isMoving = true;
         }
@@ -124,21 +126,39 @@ public class PlayerController : MonoBehaviour
         }
         
 
-        //POUR ACTIVER LE MODE JOYSTICK NICO ET THEO
-        //movementInput = new Vector2(joystick.Horizontal,0);
+        //POUR ACTIVER LE MODE JOYSTICK NICO ET THEO   
+
+        if(joystick.Horizontal>0){
+            joystickX = 1;
+        }
+        else if(joystick.Horizontal<0){
+            joystickX = -1;
+        }
+        else{
+            joystickX = 0;
+        }
+        //print("jostickX : "+joystickX);
+        //print("movementInput : " + movementInput);
+
+    
         //
 
         if(!isDead){
             if(!isAttacking){
-                rb.velocity = new Vector2(movementInput.x * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
+                if(movementInput.x == 0 && joystickX == 0){
+                    Movement.x = 0;
+                }
+                Movement.x = movementInput.x + joystickX;
+                Movement.Normalize();
+                rb.velocity = new Vector2(Movement.x * moveSpeed * Time.fixedDeltaTime,rb.velocity.y);
 
-                if(movementInput.x < 0 && facingRight ){
+                if(Movement.x < 0 && facingRight ){
                     transform.localScale *= new Vector2(-1,1);
                     //spriteRenderer.flipX = !spriteRenderer.flipX;
                     facingRight = false; 
                     //spriteRenderer.flipX = true;
                 }
-                else if(movementInput.x > 0 && !facingRight){
+                else if(Movement.x > 0 && !facingRight){
                     //spriteRenderer.flipX = false; 
                     transform.localScale *= new Vector2(-1,1); 
                     //spriteRenderer.flipX = !spriteRenderer.flipX;
@@ -183,7 +203,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void OnFire(){
-        print("prout");
+        //print("prout");
         isAttacking = true;
         animator.SetTrigger("isAttacking");
         //animator.SetBool("isDead",true);
@@ -232,6 +252,7 @@ public class PlayerController : MonoBehaviour
         {   
           onHit(collision);
         }
+        
 
         if (collision.gameObject.CompareTag("Diamond"))
         {   
@@ -290,7 +311,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("isHit");
             Vector2 directionKnock = (transform.position - collision.transform.position).normalized;
             //rb.velocity = new Vector2(directionKnock.x * reculForce, jumpForce);
-            print(directionKnock);
+            //print(directionKnock);
             Vector2 newPosition = rb.position + directionKnock * reculForce * Time.fixedDeltaTime;
             rb.MovePosition(newPosition);
 

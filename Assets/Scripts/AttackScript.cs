@@ -19,11 +19,15 @@ public class AttackScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         PigController Pigscript = collision.gameObject.GetComponent<PigController>();
         BoxScript BoxScript = collision.gameObject.GetComponent<BoxScript>();
+        MikaScript MikaScript = collision.gameObject.GetComponent<MikaScript>();
         if(Pigscript != null){
             Pigscript.takeDammage(this.gameObject);
         }
         else if(BoxScript != null){
             BoxScript.DestroyBox();
+        }
+        else if(MikaScript != null){
+            MikaScript.takeDammage(this.gameObject);
         }
 
     }

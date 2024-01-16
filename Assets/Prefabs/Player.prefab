@@ -158,7 +158,11 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  door: {fileID: 0}
   jumpForce: 2
+  isAttacking: 0
+  isGrounded: 0
+  isReallyGrounded: 0
 --- !u!50 &5970800484417076336
 Rigidbody2D:
   serializedVersion: 4
@@ -222,7 +226,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.78, y: 0.58}
+    oldSize: {x: 0.37, y: 0.58}
     newSize: {x: 0.78, y: 0.58}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
