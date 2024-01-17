@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     bool wallLeft = false;
 
     bool isTouchingWall = false;
+    bool soundSteps = false;
 
 
     // Start is called before the first frame update
@@ -117,10 +118,18 @@ public class PlayerController : MonoBehaviour
 
 
         if(Movement != Vector2.zero && Movement.x != 0 ){
+            if(!soundSteps){
+                SoundManager.instance.PlayFootstepsLoop();
+                soundSteps = true;
+            }
             animator.SetBool("isMoving",true);
             isMoving = true;
         }
         else{
+            if(soundSteps){
+                SoundManager.instance.StopFootsteps();
+            }
+            soundSteps = false;
             animator.SetBool("isMoving",false);
             isMoving = false;
         }
@@ -203,6 +212,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void OnFire(){
+        SoundManager.instance.PlayPlayerAttack();
         //print("prout");
         isAttacking = true;
         animator.SetTrigger("isAttacking");
@@ -256,7 +266,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Diamond"))
         {   
-
+            SoundManager.instance.PlayDiamondPickup();
             if(Diamonds == 0){
                 Diamond1.SetActive(true);
                 Diamonds += 1;
@@ -275,6 +285,7 @@ public class PlayerController : MonoBehaviour
                 GameObject doorObject = GameObject.Find("Door");
                 if (doorObject != null)
                 {
+                    SoundManager.instance.PlayDoorOpen();
                     Animator doorAnimator = doorObject.GetComponent<Animator>();
                     doorAnimator.SetBool("isOpen",true);
                     door.GetComponent<DoorScript>().doorOpened = true;
@@ -314,6 +325,7 @@ public class PlayerController : MonoBehaviour
             //print(directionKnock);
             Vector2 newPosition = rb.position + directionKnock * reculForce * Time.fixedDeltaTime;
             rb.MovePosition(newPosition);
+            SoundManager.instance.PlayPlayerDamage();
 
             if(LifePoints == 3){
                 Heart3.SetActive(false);
@@ -335,11 +347,13 @@ public class PlayerController : MonoBehaviour
 
     public void onHit(Collider2D collision){
         animator.SetTrigger("isHit");
+
             Vector2 directionKnock = (transform.position - collision.transform.position).normalized;
             //rb.velocity = new Vector2(directionKnock.x * reculForce, jumpForce);
             //print(directionKnock);
             Vector2 newPosition = rb.position + directionKnock * reculForce * Time.fixedDeltaTime;
             rb.MovePosition(newPosition);
+            SoundManager.instance.PlayPlayerDamage();
 
             if(LifePoints == 3){
                 Heart3.SetActive(false);

@@ -14,11 +14,11 @@ public class MenuScript : MonoBehaviour
     {
        EventSystem.current.SetSelectedGameObject(null); 
     }
-
+    
     // Update is called once per frame
     void Update()
     {
-        
+        EventSystem.current.SetSelectedGameObject(null); 
     }
 
     public void onPlay(){

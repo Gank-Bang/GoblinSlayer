@@ -51,6 +51,7 @@ public class PigController : MonoBehaviour
     }
 
     public void takeDammage(GameObject sword){
+        SoundManager.instance.PlayPigDamage();
         animator.SetTrigger("isHit");
         LifePoints -= 1;
         Vector2 directionKnock = (transform.position - sword.transform.position).normalized;

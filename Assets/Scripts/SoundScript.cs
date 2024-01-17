@@ -13,14 +13,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip doorOpenClip;
     public AudioClip footstepsClip;
 
-    private AudioSource audioSource;
+    private AudioSource mainThemeSource;
+    private AudioSource soundEffectSource;
+    private AudioSource footstepsSource;
 
-
-    void Start()
-        {
-            // Lance le thème principal au démarrage du jeu
-            PlayMainTheme();
-    }
     void Awake()
     {
         if (instance == null)
@@ -33,57 +29,67 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        audioSource = GetComponent<AudioSource>();
+        // Créer un AudioSource pour le thème principal
+        mainThemeSource = gameObject.AddComponent<AudioSource>();
+        mainThemeSource.clip = mainThemeClip;
+        mainThemeSource.loop = true;
+        mainThemeSource.volume = 0.3f; 
+        mainThemeSource.Play();
+
+        // Créer un AudioSource pour les effets sonores
+        soundEffectSource = gameObject.AddComponent<AudioSource>();
+
+        // Créer un AudioSource pour les pas
+        footstepsSource = gameObject.AddComponent<AudioSource>();
+        footstepsSource.clip = footstepsClip;
+        footstepsSource.loop = true;
     }
 
-    public void PlayMainTheme()
-    {
-        audioSource.clip = mainThemeClip;
-        audioSource.Play();
-    }
-
+    // Méthode pour jouer le son de ramassage de diamant
     public void PlayDiamondPickup()
     {
-        audioSource.clip = diamondPickupClip;
-        audioSource.Play();
+        soundEffectSource.PlayOneShot(diamondPickupClip);
     }
 
+    // Méthode pour jouer le son de l'attaque du personnage
     public void PlayPlayerAttack()
     {
-        audioSource.clip = playerAttackClip;
-        audioSource.Play();
+        soundEffectSource.PlayOneShot(playerAttackClip);
     }
 
+    // Méthode pour jouer le son de dégât subi par le personnage
     public void PlayPlayerDamage()
     {
-        audioSource.clip = playerDamageClip;
-        audioSource.Play();
+        soundEffectSource.PlayOneShot(playerDamageClip);
     }
 
+    // Méthode pour jouer le son de dégât subi par les cochons
     public void PlayPigDamage()
     {
-        audioSource.clip = pigDamageClip;
-        audioSource.Play();
+        soundEffectSource.PlayOneShot(pigDamageClip);
     }
 
+    // Méthode pour jouer le son de dégât subi par un méchant
     public void PlayEnemyDamage()
     {
-        audioSource.clip = enemyDamageClip;
-        audioSource.Play();
+        soundEffectSource.PlayOneShot(enemyDamageClip);
     }
 
+    // Méthode pour jouer le son d'ouverture de porte
     public void PlayDoorOpen()
     {
-        audioSource.clip = doorOpenClip;
-        audioSource.Play();
+        soundEffectSource.PlayOneShot(doorOpenClip);
     }
 
-    public void PlayFootsteps()
+    // Méthode pour jouer le son de pas
+   public void PlayFootstepsLoop()
     {
-        audioSource.clip = footstepsClip;
-        if (!audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
+        footstepsSource.Play();
+    }
+
+    // Méthode pour arrêter le son de pas
+    public void StopFootsteps()
+    {
+        footstepsSource.Stop();
     }
 }
