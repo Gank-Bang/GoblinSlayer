@@ -23,12 +23,13 @@ public class BombeMikaScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(!collision.gameObject.CompareTag("DialogueMika")){
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            //rb.constraints = RigidbodyConstraints2D.FreezeAll;
             animator.SetBool("Exploded",true);
         }
     }
 
     public void Explose(){
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
+        //Destroy(this.gameObject);
     }
 }

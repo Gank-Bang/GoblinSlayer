@@ -7,8 +7,10 @@ using UnityEngine;
 public class MikaScript : MonoBehaviour
 {
     public GameObject dialogueBox;
+    public GameObject diamondPrefab;
     public GameObject bombPrefab;
     public Transform playerTransform;
+    private GameObject bomb;
 
     public float LifePoints = 20;
     Animator animator;
@@ -75,23 +77,34 @@ public class MikaScript : MonoBehaviour
         if (playerTransform != null)
         {
             animator.SetTrigger("MikaAttack");
-            // Calculate direction towards the player
-            Vector3 direction = playerTransform.position - transform.position;
-            direction.Normalize();
 
-            // Instantiate the bomb prefab and set its position and rotation
-            GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+            // Si la bombe existe déjà, désactivez-la et replacez-la à sa position initiale
+            if (bomb != null)
+            {
+                //bomb.SetActive(false);
+                bomb.transform.position = transform.position;
+                bomb.SetActive(true);
+            }
+            else
+            {
+                // Si la bombe n'existe pas, créez une nouvelle bombe
+                bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+            }
+
+            // Calculate direction towards the player
+            Vector2 direction = playerTransform.position - transform.position;
+            direction.Normalize();
 
             // Set the velocity of the bomb in the calculated direction
             Rigidbody2D bombRigidbody = bomb.GetComponent<Rigidbody2D>();
             bombRigidbody.velocity = direction * bombSpeed;
-            
         }
     }
 
        void checkDie(){
             if(LifePoints <= 0){
                 Destroy(this.gameObject);
+                GameObject diamond = Instantiate(diamondPrefab, transform.position, Quaternion.identity);
             }
         }
 
